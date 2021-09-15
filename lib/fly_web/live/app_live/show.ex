@@ -18,7 +18,9 @@ defmodule FlyWeb.AppLive.Show do
       )
 
     # Only make the API call if the websocket is setup. Not on initial render.
+    # add a timer that invokes the refresh event every 5 seconds
     if connected?(socket) do
+      :timer.send_interval(5000,self(), :refresh)
       {:ok, fetch_app(socket)}
     else
       {:ok, socket}
@@ -32,7 +34,7 @@ defmodule FlyWeb.AppLive.Show do
   defp fetch_app(socket) do
     app_name = socket.assigns.app_name
 
-    case Client.fetch_app(app_name, socket.assigns.config) do
+    case Client.fetch_app_status(app_name, socket.assigns.config) do
       {:ok, app} ->
         assign(socket, :app, app)
 
@@ -69,5 +71,14 @@ defmodule FlyWeb.AppLive.Show do
 
   def preview_url(app) do
     "https://#{app["name"]}.fly.dev"
+  end
+
+  @doc """
+  handles event refresh , updates the app status every 5 seconds
+  """
+  @impl true
+  def handle_info(:refresh, socket) do
+    socket= fetch_app(socket)
+    {:noreply, socket}
   end
 end
