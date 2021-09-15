@@ -13,7 +13,7 @@ use Mix.Config
 # Configures the endpoint
 config :fly, FlyWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "g0wCHzb5BTTt3VfdPbF+oy5AefmaRILAyUBbuEuQP+EmVsGIxYhOkdUN1qzEl8I8",
+  secret_key_base: "f5XlXBkkYKQGc3h+tkaHkrFoDXDFeGJQZN6ErH4+DT4DGCKiHiHImaQAflus9dBp",
   render_errors: [view: FlyWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Fly.PubSub,
   live_view: [signing_salt: "xRInS97h"],

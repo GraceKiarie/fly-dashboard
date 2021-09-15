@@ -36,3 +36,4 @@ npm-debug.log
 
 # Local ENV values
 .envrc
+.env
