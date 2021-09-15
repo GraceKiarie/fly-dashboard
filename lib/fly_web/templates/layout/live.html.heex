@@ -1,4 +1,5 @@
 <div class="relative w-full h-full">
+   <%= render "_header.html", assigns %>
   <%= @inner_content %>
 
   <FlyWeb.Components.flash_alert flash={@flash} type={:success} />
