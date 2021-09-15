@@ -97,7 +97,7 @@
             <%= for instance <- @app["allocations"] do %>
             <tr class="bg-gray-50">
               <td class="px-6 py-4 whitespace-nowrap  font-medium ">
-                 version- <%= instance["idShort"] %>
+                 <%= instance["idShort"] %>
               </td>
               <td class="px-6 py-4 whitespace-nowrap ">
                  <%= instance["taskName"] %>
