@@ -300,7 +300,6 @@ defmodule Fly.Client do
     end
   end
 
-
   def fetch_current_user(config) do
     """
       query {
